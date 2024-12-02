@@ -27,7 +27,7 @@ public class CategoriaController {
 
     // Obtener todas las categorías
     @GetMapping
-    public List<Categoria> obtenerTodasLasCategorias() {
+    public List<Categoria> Categorias_All() {
         return categoriaService.Categorias_All();
     }
 
