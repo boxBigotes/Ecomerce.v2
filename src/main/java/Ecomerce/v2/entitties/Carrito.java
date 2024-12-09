@@ -19,12 +19,6 @@ public class Carrito {
 
     private Date fechaCreacion;
 
-    public Carrito(Long carritoId, Cliente cliente, Date fechaCreacion) {
-        this.carritoId = carritoId;
-        this.cliente = cliente;
-        this.fechaCreacion = fechaCreacion;
-    }
-
     public Long getCarritoId() {
         return carritoId;
     }

@@ -18,12 +18,6 @@ public class PedidoProducto {
     private Integer cantidad;
     private Double precio;
     
-    public PedidoProducto(Pedido pedido, Producto producto, Integer cantidad, Double precio) {
-        this.pedido = pedido;
-        this.producto = producto;
-        this.cantidad = cantidad;
-        this.precio = precio;
-    }
     public Pedido getPedido() {
         return pedido;
     }

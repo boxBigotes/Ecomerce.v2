@@ -15,13 +15,6 @@ public class Encargado {
     private String nombre;
     private String password;
 
-   
-    public Encargado(Long id, String nombre, String password) {
-        this.id = id;
-        this.nombre = nombre;
-        this.password = password;
-    }
-
     public Long getId() {
         return id;
     }

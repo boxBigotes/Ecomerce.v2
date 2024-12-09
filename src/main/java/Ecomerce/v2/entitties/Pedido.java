@@ -21,14 +21,6 @@ public class Pedido {
     private Date fechaPedido;
     private String estado;
     private Double total;
-    public Pedido(Long pedidoId, Cliente cliente, Date fechaPedido, String estado, Double total) {
-        this.pedidoId = pedidoId;
-        this.cliente = cliente;
-        this.fechaPedido = fechaPedido;
-        this.estado = estado;
-        this.total = total;
-
-    }
     
     public Long getPedidoId() {
         return pedidoId;

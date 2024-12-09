@@ -18,16 +18,7 @@ public class Cliente {
     private String telefono;
     private String direccion;
     private String password;
-    public Cliente(Long clienteId, String nombre, String apellido, String email, String telefono, String direccion,
-            String password) {
-        this.clienteId = clienteId;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.email = email;
-        this.telefono = telefono;
-        this.direccion = direccion;
-        this.password = password;
-    }
+  
     public Long getClienteId() {
         return clienteId;
     }

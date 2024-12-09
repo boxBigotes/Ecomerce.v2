@@ -14,11 +14,7 @@ public class Categoria {
 
     private String nombre;
     private String descripcion;
-    public Categoria(Long categoriaId, String nombre, String descripcion) {
-        this.categoriaId = categoriaId;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-    }
+
     public Long getCategoriaId() {
         return categoriaId;
     }

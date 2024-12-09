@@ -16,13 +16,7 @@ public class Producto {
     private String descripcion;
     private Double precio;
     private Integer stock;
-    public Producto(Long productoId, String nombre, String descripcion, Double precio, Integer stock) {
-        this.productoId = productoId;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.precio = precio;
-        this.stock = stock;
-    }
+    
     public Long getProductoId() {
         return productoId;
     }
