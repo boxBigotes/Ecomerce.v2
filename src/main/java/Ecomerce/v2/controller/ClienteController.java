@@ -1,14 +1,15 @@
 package Ecomerce.v2.controller;
 
 import java.util.List;
-import java.util.Optional;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import Ecomerce.v2.entitties.Cliente;
@@ -24,42 +25,42 @@ public class ClienteController {
         this.clienteService = clienteService;
     }
 
-    // Cliente_findAll
+    // Obtener todos los clientes
     @GetMapping
-    public List<Cliente> Cliente_findAll() {
-        return clienteService.Cliente_All();
+    public List<Cliente> getAllClientes() {
+        return clienteService.getAllClientes();
     }
 
-    // Cliente_findById
+    // Obtener un cliente por ID
     @GetMapping("/{id}")
-    public Optional<Cliente> Cliente_findById(@PathVariable Long id) {
-        return clienteService.Cliente_findById(id);
+    public Cliente getClienteById(@PathVariable Long id) {
+        return clienteService.getClienteById(id);
     }
 
-    //Cliente_findByNombre
-    @GetMapping("/nombre/{nombre}")
-    public Cliente Cliente_findByNombre(@PathVariable String nombre) {
-        return clienteService.Cliente_findByNombre(nombre);
-    }
-
-    // Crear o actualizar cliente
+    // Crear un nuevo cliente
     @PostMapping
-    public Cliente guardarCliente(@RequestBody Cliente cliente) {
-        return clienteService.Cliente_save(cliente);
+    @ResponseStatus(HttpStatus.CREATED)
+    public Cliente createCliente(@RequestBody Cliente cliente) {
+        return clienteService.saveCliente(cliente);
     }
 
-    // Cliente_deleteById
+    // Eliminar un cliente por ID
     @DeleteMapping("/{id}")
-    public void Cliente_deleteById(@PathVariable Long id) {
-        clienteService.Cliente_deleteById(id);
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteClienteById(@PathVariable Long id) {
+        clienteService.deleteClienteById(id);
     }
 
-    //Cliente_deleteByNombre
-    @DeleteMapping("/{nombre}")
-    public void Cliente_deleteByNombre(@PathVariable String nombre) {
-        clienteService.Cliente_deleteByNombre(nombre);
+    // Obtener un cliente por nombre
+    @GetMapping("/nombre/{nombre}")
+    public Cliente getClienteByNombre(@PathVariable String nombre) {
+        return clienteService.getClienteByNombre(nombre);
     }
 
+    // Eliminar un cliente por nombre
+    @DeleteMapping("/nombre/{nombre}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteClienteByNombre(@PathVariable String nombre) {
+        clienteService.deleteClienteByNombre(nombre);
+    }
 }
-
-

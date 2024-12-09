@@ -14,5 +14,5 @@ public interface PedidoProductoRepository extends JpaRepository<PedidoProducto, 
     List<PedidoProducto> findAllByPedidonombre(String nombre);
 
     //PedidoProducto_deleteByNombre
-    void PedidoProducto_deleteByNombre(String nombre);
+    void deleteByNombre(String nombre);
 }

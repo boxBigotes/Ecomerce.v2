@@ -58,9 +58,10 @@ public class Cliente {
     public String getPassword() {
         return password;
     }
-    public void setPasswordHash(String passwordHash) {
-        this.password = passwordHash;
+    public void setPassword(String password) {
+        this.password = password;
     }
+    
 
     
     

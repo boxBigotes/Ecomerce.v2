@@ -38,6 +38,6 @@ public class CategoriaService {
 
     //Categoria_deleteByNombre
      public void Categoria_deleteByNombre(String nombre) {
-        categoriaRepository.Categoria_deleteByNombre(nombre);
+        categoriaRepository.deleteByNombre(nombre);
     }
 }

@@ -4,11 +4,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import Ecomerce.v2.entitties.Cliente;
+
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
-    //Cliente_findByNombre
-    Cliente Cliente_findByNombre(String nombre);
+    // Método para encontrar un Cliente por su nombre
+    Cliente findByNombre(String nombre);
 
-    //Cliente_deleteByNombre
-    void Cliente_deleteByNombre(String nombre);
+    // Método para eliminar un Cliente por su nombre
+    void deleteByNombre(String nombre);
 }

@@ -9,5 +9,5 @@ import Ecomerce.v2.entitties.Categoria;
 public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
 
     //Categoria_deleteByNombre
-    void Categoria_deleteByNombre(String nombre);
+    void deleteByNombre(String nombre);
 }

@@ -1,7 +1,6 @@
 package Ecomerce.v2.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -19,38 +18,54 @@ public class ClienteService {
         this.clienteRepository = clienteRepository;
     }
 
-    //Cliente_All
-    public List<Cliente> Cliente_All() {
+    // Obtener todos los clientes
+    public List<Cliente> getAllClientes() {
         return clienteRepository.findAll();
     }
 
-    //Cliente_findById
-    public Optional<Cliente> Cliente_findById(Long id) {
-        return clienteRepository.findById(id);
+    // Buscar cliente por ID
+    public Cliente getClienteById(Long id) {
+        return clienteRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente no encontrado"));
     }
 
-    //Cliente_save
-    public Cliente Cliente_save(Cliente cliente) {
+    // Guardar un nuevo cliente
+    public Cliente saveCliente(Cliente cliente) {
         return clienteRepository.save(cliente);
     }
 
-    //Cliente_deleteById
-    public void Cliente_deleteById(Long id) {
+    // Eliminar cliente por ID
+    public void deleteClienteById(Long id) {
+        if (!clienteRepository.existsById(id)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente no encontrado");
+        }
         clienteRepository.deleteById(id);
     }
 
-    //Cliente_findByNombre
-    public Cliente Cliente_findByNombre(String nombre) {
-        Cliente cliente = clienteRepository.Cliente_findByNombre(nombre);
+    // Buscar cliente por nombre
+    public Cliente getClienteByNombre(String nombre) {
+        Cliente cliente = clienteRepository.findByNombre(nombre);
         if (cliente == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente no encontrado");
         }
         return cliente;
     }
 
-    //Cliente_deleteByNombre
-     public void Cliente_deleteByNombre(String nombre) {
-        clienteRepository.Cliente_deleteByNombre(nombre);
+    // Eliminar cliente por nombre
+    public void deleteClienteByNombre(String nombre) {
+        Cliente cliente = clienteRepository.findByNombre(nombre);
+        if (cliente == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente no encontrado");
+        }
+        clienteRepository.deleteByNombre(nombre);
     }
 
+    // Método de autenticación
+    public Cliente authenticate(String nombre, String password) {
+        Cliente cliente = clienteRepository.findByNombre(nombre);
+        if (cliente == null || !cliente.getPassword().equals(password)) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Credenciales incorrectas");
+        }
+        return cliente;
+    }
 }

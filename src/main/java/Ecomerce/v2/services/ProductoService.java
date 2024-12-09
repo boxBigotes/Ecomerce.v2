@@ -38,11 +38,11 @@ public class ProductoService {
 
     //Producto_findByCategoriaNombre
     public List<Producto> Producto_findByCategoriaNombre(String nombre) {
-        return productoRepository.Producto_findByCategoriaNombre(nombre);
+        return productoRepository.findByCategoriaNombre(nombre);
     }
 
     //Producto_deleteByNombre
     public void Producto_deleteByNombre(String nombre) {
-        productoRepository.Producto_deleteByNombre(nombre);
+        productoRepository.deleteByNombre(nombre);
     }
 }

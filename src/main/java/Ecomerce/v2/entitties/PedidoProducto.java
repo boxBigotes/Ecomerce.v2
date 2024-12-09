@@ -1,23 +1,32 @@
 package Ecomerce.v2.entitties;
 
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
 public class PedidoProducto {
 
-    @Id
+    @EmbeddedId
+    private PedidoProductoId id;  // Esto actúa como la clave compuesta
+
     @ManyToOne
+    @JoinColumn(name = "pedido_id", insertable = false, updatable = false)
     private Pedido pedido;
 
-    @Id
     @ManyToOne
+    @JoinColumn(name = "producto_id", insertable = false, updatable = false)
     private Producto producto;
 
     private Integer cantidad;
     private Double precio;
-    
+    public PedidoProductoId getId() {
+        return id;
+    }
+    public void setId(PedidoProductoId id) {
+        this.id = id;
+    }
     public Pedido getPedido() {
         return pedido;
     }
@@ -42,7 +51,6 @@ public class PedidoProducto {
     public void setPrecio(Double precio) {
         this.precio = precio;
     }
-
     
-
+    
 }

@@ -39,7 +39,7 @@ public class PedidoProductoService {
     
     //PedidoProducto_deleteByNombre
     public void PedidoProducto_deleteByNombre(String nombreProducto) {
-        pedidoProductoRepository.PedidoProducto_deleteByNombre(nombreProducto);
+        pedidoProductoRepository.deleteByNombre(nombreProducto);
     }
 
     // PedidoProducto_findByPedidoNombre

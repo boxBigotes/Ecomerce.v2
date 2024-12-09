@@ -13,6 +13,6 @@ public interface EncargadoRepository extends JpaRepository<Encargado, Long> {
     Optional<Encargado> findByNombre(String nombre);
 
     //Encargado_deleteByNombre
-    void Encargado_deleteByNombre(String nombre);
+    void deleteByNombre(String nombre);
 
 }
