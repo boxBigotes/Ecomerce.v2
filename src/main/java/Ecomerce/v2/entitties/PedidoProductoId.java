@@ -31,12 +31,17 @@ public class PedidoProductoId implements Serializable {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         PedidoProductoId that = (PedidoProductoId) obj;
-        return pedidoId.equals(that.pedidoId) && productoId.equals(that.productoId);
+        return (pedidoId != null ? pedidoId.equals(that.pedidoId) : that.pedidoId == null) && 
+               (productoId != null ? productoId.equals(that.productoId) : that.productoId == null);
     }
-
+    
     @Override
     public int hashCode() {
-        return 31 * pedidoId.hashCode() + productoId.hashCode();
+        int result = 17;
+        result = 31 * result + (pedidoId != null ? pedidoId.hashCode() : 0);
+        result = 31 * result + (productoId != null ? productoId.hashCode() : 0);
+        return result;
     }
+    
 
 }    

@@ -12,11 +12,11 @@ public class PedidoProducto {
     private PedidoProductoId id;  // Esto actúa como la clave compuesta
 
     @ManyToOne
-    @JoinColumn(name = "pedido_id", insertable = false, updatable = false)
+    @JoinColumn(name = "pedido_id", referencedColumnName = "pedidoId", insertable = false, updatable = false)
     private Pedido pedido;
 
     @ManyToOne
-    @JoinColumn(name = "producto_id", insertable = false, updatable = false)
+    @JoinColumn(name = "producto_id", referencedColumnName = "productoId", insertable = false, updatable = false)
     private Producto producto;
 
     private Integer cantidad;

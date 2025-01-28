@@ -6,7 +6,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Pedido {
@@ -15,8 +14,6 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pedidoId;
 
-    @ManyToOne
-    private Cliente cliente;
 
     private Date fechaPedido;
     private String estado;
@@ -27,12 +24,6 @@ public class Pedido {
     }
     public void setPedidoId(Long pedidoId) {
         this.pedidoId = pedidoId;
-    }
-    public Cliente getCliente() {
-        return cliente;
-    }
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
     }
     public Date getFechaPedido() {
         return fechaPedido;
@@ -52,7 +43,5 @@ public class Pedido {
     public void setTotal(Double total) {
         this.total = total;
     }
-
-
 
 }
